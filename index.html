@@ -56,18 +56,18 @@
       <a class="navbar-brand" href="#">Home</a>
     </nav>
 
-    <main class="d-flex">
-      <div id="button-group">
+    <main class="">
+      <div id="button-group" class="d-flex justify-content-around">
         <div>
           <button class="btn-lg" onclick="retrieveAll()">Retrieve All</button>
         </div>
 
         <div>
-          <div>
-            <button class="btn-lg" onclick="retrieveUsers()">
-              Retrieve Users
-            </button>
-          </div>
+          <button class="btn-lg" onclick="retrieveUsers()">
+            Retrieve Users
+          </button>
+        </div>
+        <div>
           <label>Get users:</label>
           <select class="btn-lg" id="select-btn">
             <option value="name">Name</option>
@@ -75,8 +75,9 @@
             <option value="email">Email</option>
             <option value="address">Address</option>
           </select>
-          <input type="text" id="searchField" />
+          <input type="text" id="searchField" oninput="displayData()" />
         </div>
+
         <div>
           <button class="btn-lg" id="sortingButton" onclick="sortNames()">
             Sort name

@@ -1,18 +1,20 @@
 let namesArray = [];
+let data;
 
 const sortNames = () => {
-  let resultsDiv = document.querySelector("#results-div");
-  resultsDiv.innerHTML = `
-                <div>
-                  <ul class="users-list"> </ul>
-                </div>`;
-  let usersList = document.querySelector(".users-list");
-  namesArray.sort().forEach((name) => {
-    usersList.innerHTML += `<li>${name}</li>`;
-  });
-  namesArray = [];
+  if (namesArray.length !== 0) {
+    let resultsDiv = document.querySelector("#results-div");
+    resultsDiv.innerHTML = `
+                  <div>
+                    <ul class="users-list"> </ul>
+                  </div>`;
+    let usersList = document.querySelector(".users-list");
+    namesArray.sort().forEach((name) => {
+      usersList.innerHTML += `<li>${name}</li>`;
+    });
+  }
 };
-const displayData = (data) => {
+const displayData = () => {
   let selectBtn = document.querySelector("#select-btn").value;
   let searchField = document.getElementById("searchField").value;
 
@@ -58,9 +60,10 @@ const displayData = (data) => {
 
 const retrieveUsers = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await response.json();
+  data = await response.json();
   console.log(data);
-  displayData(data);
+  namesArray = [];
+  displayData();
 };
 
 const retrieveAll = async () => {
