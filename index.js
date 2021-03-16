@@ -78,6 +78,7 @@ const retrieveAll = async () => {
             <th scope="col">Name</th>
             <th scope="col">Username</th>
             <th scope="col">Email</th>
+            <th scope="col">Phone</th>
           </tr>
         </thead>
         <tbody>
@@ -92,6 +93,7 @@ const retrieveAll = async () => {
             <td><a href="details.html?id=${user.id}">${user.name}</a></td>
             <td>${user.username}</td>
             <td>${user.email}</td>
+            <td>${user.phone}</td>
           </tr> `;
   });
 };
